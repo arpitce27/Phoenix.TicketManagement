@@ -2,12 +2,6 @@
 using MediatR;
 using Phoenix.TicketManagement.Application.Contracts.Persistance;
 using Phoenix.TicketManagement.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.Design;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Phoenix.TicketManagement.Application.Features.Events.Commands.CreateEvent
 {
@@ -23,6 +17,13 @@ namespace Phoenix.TicketManagement.Application.Features.Events.Commands.CreateEv
 
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
         {
+            var validator = new CreateEventCommandValidator();
+            var validationResult = await validator.ValidateAsync(request);
+            if (validationResult != null && validationResult.Errors.Count > 0)
+            {
+                throw new Exceptions.ValidationException(validationResult);
+            }
+
             var newEvent = _mapper.Map<Event>(request);
             await _eventRepository.AddAsync(newEvent);
 

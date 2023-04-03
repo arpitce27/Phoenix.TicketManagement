@@ -1,0 +1,19 @@
+﻿using Phoenix.TicketManagement.Application.Resonses;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Phoenix.TicketManagement.Application.Features.Categories.Commands.CreateCategory
+{
+    public class CreateCategoryCommandResponse : BaseResponse
+    {
+        public CreateCategoryCommandResponse() : base()
+        {
+            
+        }
+
+        public CreateCategoryDto Category { get; set; } = default!;
+    }
+}

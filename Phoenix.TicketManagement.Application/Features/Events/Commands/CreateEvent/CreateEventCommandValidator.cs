@@ -11,6 +11,7 @@ namespace Phoenix.TicketManagement.Application.Features.Events.Commands.CreateEv
     public class CreateEventCommandValidator : AbstractValidator<CreateEventCommand>
     {
         private readonly IEventRepository _eventRepository;
+        public CreateEventCommandValidator() { }
         public CreateEventCommandValidator(IEventRepository eventRepository) 
         {
             _eventRepository = eventRepository;

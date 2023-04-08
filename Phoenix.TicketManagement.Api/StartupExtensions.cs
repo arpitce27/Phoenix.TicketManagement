@@ -1,4 +1,5 @@
-﻿using Phoenix.TicketManagement.Application;
+﻿using Microsoft.EntityFrameworkCore;
+using Phoenix.TicketManagement.Application;
 using Phoenix.TicketManagement.Infrastructure;
 using Phoenix.TicketManagement.Persistence;
 
@@ -33,6 +34,24 @@ namespace Phoenix.TicketManagement.Api
             app.MapControllers();
 
             return app;
+        }
+
+        public static async Task ResetDatabaseAsync(this WebApplication app)
+        {
+            using var scope = app.Services.CreateScope();
+            try
+            {
+                var context = scope.ServiceProvider.GetService<PhoenixTicketDbContext>();
+                if (context != null)
+                {
+                    await context.Database.EnsureCreatedAsync();
+                    await context.Database.MigrateAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
     }
 }

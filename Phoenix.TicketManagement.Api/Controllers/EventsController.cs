@@ -1,7 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Phoenix.TicketManagement.Api.Utility;
 using Phoenix.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using Phoenix.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
+using Phoenix.TicketManagement.Application.Features.Events.Queries.ExportEvents;
 using Phoenix.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using Phoenix.TicketManagement.Application.Features.Events.Queries.GetEventList;
 
@@ -61,6 +63,7 @@ namespace Phoenix.TicketManagement.Api.Controllers
         }
 
         [HttpGet("export", Name = "ExportEvent")]
+        [FileResultContetType("text/csv")]
         public async Task<FileResult> ExportEvents()
         {
             var file = await _mediator.Send(new GetEventsExportQuery());

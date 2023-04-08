@@ -9,11 +9,6 @@ using Phoenix.TicketManagement.Application.Features.Events.Queries.ExportEvents;
 using Phoenix.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using Phoenix.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using Phoenix.TicketManagement.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Phoenix.TicketManagement.Application.Profiles
 {

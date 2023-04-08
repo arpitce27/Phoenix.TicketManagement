@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using Phoenix.TicketManagement.Api.Utility;
 using Phoenix.TicketManagement.Application;
 using Phoenix.TicketManagement.Infrastructure;
 using Phoenix.TicketManagement.Persistence;
@@ -9,6 +11,8 @@ namespace Phoenix.TicketManagement.Api
     {
         public static WebApplication ConfigurServices(this WebApplicationBuilder builder)
         {
+            AddSwagger(builder.Services);
+
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceService(builder.Configuration);
@@ -25,6 +29,15 @@ namespace Phoenix.TicketManagement.Api
 
         public static WebApplication ConfigurPipeline(this WebApplication app)
         {
+            if (app.Environment.IsDevelopment())
+            {
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Phoenix Ticket Management APIs");
+                });
+            }
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -52,6 +65,20 @@ namespace Phoenix.TicketManagement.Api
             {
 
             }
+        }
+
+        private static void AddSwagger(IServiceCollection services)
+        {
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo()
+                {
+                    Version = "v1",
+                    Title = "Phoenix Ticket Management APIs"
+                });
+
+                c.OperationFilter<FileResultContentTypeOperationFilter>();
+            });
         }
     }
 }

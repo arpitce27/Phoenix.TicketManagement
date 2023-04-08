@@ -60,5 +60,12 @@ namespace Phoenix.TicketManagement.Api.Controllers
             return NoContent();
         }
 
+        [HttpGet("export", Name = "ExportEvent")]
+        public async Task<FileResult> ExportEvents()
+        {
+            var file = await _mediator.Send(new GetEventsExportQuery());
+            return File(file.Data, file.ContentType, file.EventExportFileName);
+        }
+
     }
 }

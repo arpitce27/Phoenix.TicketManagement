@@ -5,6 +5,7 @@ using Phoenix.TicketManagement.Application.Features.Categories.Queries.GetCatego
 using Phoenix.TicketManagement.Application.Features.Events.Commands.CreateEvent;
 using Phoenix.TicketManagement.Application.Features.Events.Commands.DeleteEvent;
 using Phoenix.TicketManagement.Application.Features.Events.Commands.UpdateEvent;
+using Phoenix.TicketManagement.Application.Features.Events.Queries.ExportEvents;
 using Phoenix.TicketManagement.Application.Features.Events.Queries.GetEventDetail;
 using Phoenix.TicketManagement.Application.Features.Events.Queries.GetEventList;
 using Phoenix.TicketManagement.Domain.Entities;
@@ -29,7 +30,8 @@ namespace Phoenix.TicketManagement.Application.Profiles
 
             CreateMap<Event, CreateEventCommand>().ReverseMap();
             CreateMap<Event, UpdateEventCommand>().ReverseMap();
-            CreateMap<Event, DeleteEventCommand>().ReverseMap();
+            CreateMap<Event, DeleteEventCommand>().ReverseMap(); 
+            CreateMap<Event, EventExportDto>().ReverseMap(); 
 
             CreateMap<Category, CreateCategoryDto>().ReverseMap();
         }

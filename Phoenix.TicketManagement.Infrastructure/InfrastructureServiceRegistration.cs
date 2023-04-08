@@ -2,12 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Phoenix.TicketManagement.Application.Contracts.Infrastructure;
 using Phoenix.TicketManagement.Application.Models.Mail;
+using Phoenix.TicketManagement.Infrastructure.FileExport;
 using Phoenix.TicketManagement.Infrastructure.Mail;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Phoenix.TicketManagement.Infrastructure
 {
@@ -18,6 +14,7 @@ namespace Phoenix.TicketManagement.Infrastructure
             services.Configure<EmailSettings>(configuration.GetSection("EmailSettings"));
 
             services.AddTransient<IEmailService, EmailService>();
+            services.AddTransient<ICsvExporter, CsvExporter>();
 
             return services;
         }

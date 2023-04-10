@@ -19,16 +19,17 @@ namespace Phoenix.TicketManagement.Application.Profiles
             CreateMap<Event, EventListVm>().ReverseMap();
             CreateMap<Event, EventDetailVm>().ReverseMap();
 
-            CreateMap<Category, CategoryDto>().ReverseMap();
-            CreateMap<Category, CategoriesListVm>().ReverseMap();
-            CreateMap<Category, CategoryEventListVm>().ReverseMap();
+            CreateMap<Category, CategoryDto>();
+            CreateMap<Category, CategoriesListVm>();
+            CreateMap<Category, CategoryEventListVm>();
 
             CreateMap<Event, CreateEventCommand>().ReverseMap();
             CreateMap<Event, UpdateEventCommand>().ReverseMap();
             CreateMap<Event, DeleteEventCommand>().ReverseMap(); 
             CreateMap<Event, EventExportDto>().ReverseMap(); 
 
-            CreateMap<Category, CreateCategoryDto>().ReverseMap();
+            CreateMap<Category, CreateCategoryCommand>();
+            CreateMap<Category, CreateCategoryDto>();
         }
     }
 }

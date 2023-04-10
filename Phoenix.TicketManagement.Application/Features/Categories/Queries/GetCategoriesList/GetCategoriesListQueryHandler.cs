@@ -12,10 +12,10 @@ namespace Phoenix.TicketManagement.Application.Features.Categories.Queries.GetCa
 {
     public class GetCategoriesListQueryHandler : IRequestHandler<GetCategoriesListQuery, List<CategoriesListVm>>
     {
-        private readonly ICategoryRepository _categoryRepository;
+        private readonly IAsyncRepository<Category> _categoryRepository;
         private readonly IMapper _mapper;
 
-        public GetCategoriesListQueryHandler(ICategoryRepository categoryRepository, IMapper mapper)
+        public GetCategoriesListQueryHandler(IAsyncRepository<Category> categoryRepository, IMapper mapper)
         {
             _categoryRepository = categoryRepository;
             _mapper = mapper;

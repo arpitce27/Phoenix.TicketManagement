@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using Phoenix.TicketManagement.Application.Contracts.Infrastructure;
 using Phoenix.TicketManagement.Application.Contracts.Persistance;
 using Phoenix.TicketManagement.Application.Models.Mail;
@@ -12,11 +13,14 @@ namespace Phoenix.TicketManagement.Application.Features.Events.Commands.CreateEv
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
         private readonly IEmailService _emailService;
-        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper, IEmailService emailService)
+        private readonly ILogger<CreateEventCommand> _logger;
+        public CreateEventCommandHandler(IEventRepository eventRepository, IMapper mapper, 
+            IEmailService emailService, ILogger<CreateEventCommand> logger)
         {
             _eventRepository = eventRepository;
             _mapper = mapper;
             _emailService = emailService;
+            _logger = logger;
         }
 
         public async Task<Guid> Handle(CreateEventCommand request, CancellationToken cancellationToken)
@@ -44,7 +48,7 @@ namespace Phoenix.TicketManagement.Application.Features.Events.Commands.CreateEv
             }
             catch (Exception ex) 
             {
-
+                _logger.LogError($"Mailing about event {newEvent.EventId} failed due to an error with the mail service: {ex.Message}");
             }
 
             return newEvent.EventId;

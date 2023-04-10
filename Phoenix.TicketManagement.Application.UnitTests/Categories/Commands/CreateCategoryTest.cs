@@ -6,11 +6,6 @@ using Phoenix.TicketManagement.Application.Profiles;
 using Phoenix.TicketManagement.Application.UnitTests.Mocks;
 using Phoenix.TicketManagement.Domain.Entities;
 using Shouldly;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Phoenix.TicketManagement.Application.UnitTests.Categories.Commands

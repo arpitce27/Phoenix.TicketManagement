@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Phoenix.TicketManagement.Api.Middleware;
 using Phoenix.TicketManagement.Api.Utility;
 using Phoenix.TicketManagement.Application;
 using Phoenix.TicketManagement.Infrastructure;
@@ -41,6 +42,8 @@ namespace Phoenix.TicketManagement.Api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCustomExceptionHandler();
 
             app.UseCors("Open");
 

@@ -15,19 +15,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{334B2B48-1CD2-4F55-9668-B15D2D69DCCA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.Domain", "Phoenix.TicketManagement.Domain\Phoenix.TicketManagement.Domain.csproj", "{EACC97A5-C241-4099-99E6-6E8C41DC4A55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.TicketManagement.Domain", "Phoenix.TicketManagement.Domain\Phoenix.TicketManagement.Domain.csproj", "{EACC97A5-C241-4099-99E6-6E8C41DC4A55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.Application", "Phoenix.TicketManagement.Application\Phoenix.TicketManagement.Application.csproj", "{57BA9648-4F2A-452F-8EF3-96D3E5610181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.TicketManagement.Application", "Phoenix.TicketManagement.Application\Phoenix.TicketManagement.Application.csproj", "{57BA9648-4F2A-452F-8EF3-96D3E5610181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.Persistence", "Phoenix.TicketManagement.Persistence\Phoenix.TicketManagement.Persistence.csproj", "{11D79AFA-267A-4D3C-9DE0-05687EF6E754}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.TicketManagement.Persistence", "Phoenix.TicketManagement.Persistence\Phoenix.TicketManagement.Persistence.csproj", "{11D79AFA-267A-4D3C-9DE0-05687EF6E754}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.Infrastructure", "Phoenix.TicketManagement.Infrastructure\Phoenix.TicketManagement.Infrastructure.csproj", "{AC11E8D4-AAA6-45C7-9914-0CEC5B6331F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.TicketManagement.Infrastructure", "Phoenix.TicketManagement.Infrastructure\Phoenix.TicketManagement.Infrastructure.csproj", "{AC11E8D4-AAA6-45C7-9914-0CEC5B6331F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.Api", "Phoenix.TicketManagement.Api\Phoenix.TicketManagement.Api.csproj", "{BAD995A9-BD54-4548-8BCC-55F4BCFABCF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.TicketManagement.Api", "Phoenix.TicketManagement.Api\Phoenix.TicketManagement.Api.csproj", "{BAD995A9-BD54-4548-8BCC-55F4BCFABCF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.Application.UnitTests", "Phoenix.TicketManagement.Application.UnitTests\Phoenix.TicketManagement.Application.UnitTests.csproj", "{313CB665-28C4-4FC1-918F-953768E9537E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.TicketManagement.Application.UnitTests", "Phoenix.TicketManagement.Application.UnitTests\Phoenix.TicketManagement.Application.UnitTests.csproj", "{313CB665-28C4-4FC1-918F-953768E9537E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.Identity", "Phoenix.TicketManagement.Identity\Phoenix.TicketManagement.Identity.csproj", "{DA2E035A-ADE7-4D71-84B9-E71D9FE30921}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Phoenix.TicketManagement.Identity", "Phoenix.TicketManagement.Identity\Phoenix.TicketManagement.Identity.csproj", "{DA2E035A-ADE7-4D71-84B9-E71D9FE30921}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phoenix.TicketManagement.API.IntegrationTests", "Phoenix.TicketManagement.API.IntegrationTests\Phoenix.TicketManagement.API.IntegrationTests.csproj", "{9B1DBDC3-8C9B-48DE-ADB9-F008DE0E779B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{DA2E035A-ADE7-4D71-84B9-E71D9FE30921}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA2E035A-ADE7-4D71-84B9-E71D9FE30921}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA2E035A-ADE7-4D71-84B9-E71D9FE30921}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B1DBDC3-8C9B-48DE-ADB9-F008DE0E779B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B1DBDC3-8C9B-48DE-ADB9-F008DE0E779B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B1DBDC3-8C9B-48DE-ADB9-F008DE0E779B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B1DBDC3-8C9B-48DE-ADB9-F008DE0E779B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -79,6 +85,7 @@ Global
 		{BAD995A9-BD54-4548-8BCC-55F4BCFABCF1} = {37B9F5E2-5354-4A08-922A-EF6C434551DD}
 		{313CB665-28C4-4FC1-918F-953768E9537E} = {E10CB15D-7EFD-4742-B3C1-7EBE601E0C6B}
 		{DA2E035A-ADE7-4D71-84B9-E71D9FE30921} = {5C24350B-4F1A-483E-B9E7-84C768E6035C}
+		{9B1DBDC3-8C9B-48DE-ADB9-F008DE0E779B} = {E10CB15D-7EFD-4742-B3C1-7EBE601E0C6B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1499F78B-6B26-47D5-BF72-01202B451FB6}

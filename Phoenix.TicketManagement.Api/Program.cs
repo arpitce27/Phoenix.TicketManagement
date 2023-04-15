@@ -12,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog((context, loggerConfiguration) => loggerConfiguration
      .WriteTo.Console()
-     .ReadFrom.Configuration(context.Configuration));
+     .ReadFrom.Configuration(context.Configuration), preserveStaticLogger: true);
 
 var app = builder.ConfigurServices().ConfigurPipeline();
 
@@ -21,3 +21,5 @@ app.UseSerilogRequestLogging();
 await app.ResetDatabaseAsync();
 
 app.Run();
+
+public partial class Program { }

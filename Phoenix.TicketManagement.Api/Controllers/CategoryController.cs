@@ -18,7 +18,7 @@ namespace Phoenix.TicketManagement.Api.Controllers
             _mediator = mediator;
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet("all", Name = "GetAllCategories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<CategoriesListVm>>> GetAllCategories()

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Phoenix.TicketManagement.Application.Contracts;
 using Phoenix.TicketManagement.Domain.Common;
 using Phoenix.TicketManagement.Domain.Entities;
 using System;
@@ -11,9 +12,10 @@ namespace Phoenix.TicketManagement.Persistence
 {
     public class PhoenixTicketDbContext : DbContext
     {
-        public PhoenixTicketDbContext(DbContextOptions<PhoenixTicketDbContext> options) : base(options)
+        private readonly ILoggedInUserService? _loggedInUserService;
+        public PhoenixTicketDbContext(DbContextOptions<PhoenixTicketDbContext> options, ILoggedInUserService loggedInUserService) : base(options)
         {
-            
+            _loggedInUserService = loggedInUserService;
         }
 
         public DbSet<Event> Events { get; set; }
@@ -139,9 +141,11 @@ namespace Phoenix.TicketManagement.Persistence
                 {
                     case EntityState.Modified:
                         item.Entity.LastModifiedDate = DateTime.Now;
+                        item.Entity.LastModifiedBy = _loggedInUserService.UserId;
                         break;
                     case EntityState.Added:
                         item.Entity.CreatedDate = DateTime.Now;
+                        item.Entity.CreatedBy = _loggedInUserService.UserId;
                         break; 
                 }
             }

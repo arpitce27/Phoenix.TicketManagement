@@ -152,5 +152,24 @@ namespace Phoenix.TicketManagement.Persistence
             return base.SaveChangesAsync(cancellationToken);
         }
 
+        public override int SaveChanges()
+        {
+            foreach (var item in ChangeTracker.Entries<AuditableEntity>())
+            {
+                switch (item.State)
+                {
+                    case EntityState.Modified:
+                        item.Entity.LastModifiedDate = DateTime.Now;
+                        item.Entity.LastModifiedBy = _loggedInUserService.UserId;
+                        break;
+                    case EntityState.Added:
+                        item.Entity.CreatedDate = DateTime.Now;
+                        item.Entity.CreatedBy = _loggedInUserService.UserId;
+                        break;
+                }
+            }
+            return base.SaveChanges();
+        }
+
     }
 }

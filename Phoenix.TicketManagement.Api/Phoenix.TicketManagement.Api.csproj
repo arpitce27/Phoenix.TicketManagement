@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Phoenix.TicketManagement.Application\Phoenix.TicketManagement.Application.csproj" />
+    <ProjectReference Include="..\Phoenix.TicketManagement.Identity\Phoenix.TicketManagement.Identity.csproj" />
     <ProjectReference Include="..\Phoenix.TicketManagement.Infrastructure\Phoenix.TicketManagement.Infrastructure.csproj" />
     <ProjectReference Include="..\Phoenix.TicketManagement.Persistence\Phoenix.TicketManagement.Persistence.csproj" />
   </ItemGroup>

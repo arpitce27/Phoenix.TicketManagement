@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using Phoenix.TicketManagement.Api.Middleware;
 using Phoenix.TicketManagement.Api.Utility;
 using Phoenix.TicketManagement.Application;
+using Phoenix.TicketManagement.Identity;
 using Phoenix.TicketManagement.Infrastructure;
 using Phoenix.TicketManagement.Persistence;
 
@@ -17,6 +18,7 @@ namespace Phoenix.TicketManagement.Api
             builder.Services.AddApplicationServices();
             builder.Services.AddInfrastructureServices(builder.Configuration);
             builder.Services.AddPersistenceService(builder.Configuration);
+            builder.Services.AddIdentityServices(builder.Configuration);
 
             builder.Services.AddControllers();
 

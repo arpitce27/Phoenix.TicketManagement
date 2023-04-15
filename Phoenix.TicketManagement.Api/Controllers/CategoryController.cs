@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Phoenix.TicketManagement.Application.Features.Categories.Commands.CreateCategory;
 using Phoenix.TicketManagement.Application.Features.Categories.Queries.GetCategoriesList;
@@ -17,6 +18,7 @@ namespace Phoenix.TicketManagement.Api.Controllers
             _mediator = mediator;
         }
 
+        [Authorize]
         [HttpGet("all", Name = "GetAllCategories")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<List<CategoriesListVm>>> GetAllCategories()

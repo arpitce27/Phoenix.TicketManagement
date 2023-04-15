@@ -43,9 +43,13 @@ namespace Phoenix.TicketManagement.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
+
             app.UseCustomExceptionHandler();
 
             app.UseCors("Open");
+
+            app.UseAuthorization();
 
             app.MapControllers();
 
@@ -74,6 +78,35 @@ namespace Phoenix.TicketManagement.Api
         {
             services.AddSwaggerGen(c =>
             {
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                { 
+                    Description = @"JWT Authorization using token scheme. \r\n\r\n" +
+                        "Enter Bearer [space] and then token in the input below. \r\n\r\n" + 
+                        "For Example: Bearer 23hk32hk3jh231jhkkj",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    { 
+                        new OpenApiSecurityScheme
+                        { 
+                            Reference = new OpenApiReference
+                            { 
+                                Type = ReferenceType.Schema,
+                                Id = "Bearer"
+                            },
+                            Scheme = "oauth2",
+                            Name = "Bearer",
+                            In = ParameterLocation.Header
+                        },
+                        new List<string>()
+                    }
+                });
+
                 c.SwaggerDoc("v1", new OpenApiInfo()
                 {
                     Version = "v1",

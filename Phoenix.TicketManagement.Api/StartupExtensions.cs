@@ -85,9 +85,9 @@ namespace Phoenix.TicketManagement.Api
             services.AddSwaggerGen(c =>
             {
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                { 
+                {
                     Description = @"JWT Authorization using token scheme. \r\n\r\n" +
-                        "Enter Bearer [space] and then token in the input below. \r\n\r\n" + 
+                        "Enter Bearer [space] and then token in the input below. \r\n\r\n" +
                         "For Example: Bearer 23hk32hk3jh231jhkkj",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
@@ -102,7 +102,7 @@ namespace Phoenix.TicketManagement.Api
                         { 
                             Reference = new OpenApiReference
                             { 
-                                Type = ReferenceType.Schema,
+                                Type = ReferenceType.SecurityScheme,
                                 Id = "Bearer"
                             },
                             Scheme = "oauth2",

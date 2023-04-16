@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Phoenix.TicketManagement.Persistence;
 
@@ -11,9 +12,10 @@ using Phoenix.TicketManagement.Persistence;
 namespace Phoenix.TicketManagement.Persistence.Migrations
 {
     [DbContext(typeof(PhoenixTicketDbContext))]
-    partial class PhoenixTicketDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230416130517_AddedAudiingEntities")]
+    partial class AddedAudiingEntities
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
